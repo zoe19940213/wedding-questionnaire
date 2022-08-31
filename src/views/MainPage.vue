@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <h2 class="title">育柔&志辰婚禮出席</h2>
+    <h1 class="title p-4">育柔 & 志辰婚禮出席</h1>
     <PhotoCarousel />
     <InformationPart />
     <MainForm />
@@ -27,6 +27,10 @@ export default {
   margin: auto
   width: 100%
   background: $baby-gray
+  .title
+    margin: 2rem
+    text-align: center
+    border-bottom: 1px solid $baby-blue
 
 @media screen and (min-width: 576px)
   .container
