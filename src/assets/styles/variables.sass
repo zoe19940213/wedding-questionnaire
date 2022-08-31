@@ -1,0 +1,47 @@
+/* == colors == */
+$baby-gray: #faf7f5
+$baby-blue: #d9e4e3
+$baby-pink: #f1e0d6
+$luxury-black: #2a2b2b
+$luxury-gray: #746e6e
+$coral-pink: #ecc8ac
+
+/* == text == */
+$desktop-font-basic: 16px
+$mobile-font-basic: 14px
+
+/* == sizes & spaces == */
+$sizes: (25: 25%, 50: 50%, 75: 75%, 100: 100%)
+
+@each $prop, $abbrev in (width: w, height: h)
+  @each $key, $value in $sizes
+    .#{$abbrev}-#{$key}
+      #{$prop}: #{$value}
+
+$spacer: 1.2rem
+$spacers: ( 1: ($spacer * 0.25), 2: ( $spacer * 0.5 ), 3: ( $spacer * 0.75 ), 4: ( $spacer * 1 ), 5: ( $spacer * 1.25 ), 6: ( $spacer * 1.5 ), 7: ( $spacer * 1.75 ), 8: ( $spacer * 2 ) )
+
+@each $prop, $abbrev in (margin: m, padding: p)
+  @each $key, $value in $spacers
+    .#{$abbrev}-#{$key}
+      #{$prop}: #{$value}
+
+    .#{$abbrev}t-#{$key}
+      #{$prop}-top: #{$value}
+
+    .#{$abbrev}b-#{$key}
+      #{$prop}-bottom: #{$value}
+
+    .#{$abbrev}l-#{$key}
+      #{$prop}-left: #{$value}
+
+    .#{$abbrev}r-#{$key}
+      #{$prop}-right: #{$value}
+
+    .#{$abbrev}x-#{$key}
+      #{$prop}-left: #{$value}
+      #{$prop}-right: #{$value}
+
+    .#{$abbrev}y-#{$key}
+      #{$prop}-top: #{$value}
+      #{$prop}-bottom: #{$value}
