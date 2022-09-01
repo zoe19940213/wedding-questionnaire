@@ -1,10 +1,10 @@
 <template>
   <div class="main-form">
     <div class="basic-info">
-      <div class="question">
+      <!-- <div class="question">
         <label for=""></label>
         <input type="text" />
-      </div>
+      </div> -->
     </div>
     <div class="attendance"></div>
     <div class="invitation"></div>
