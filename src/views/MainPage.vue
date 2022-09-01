@@ -26,6 +26,7 @@ export default {
 .container
   margin: auto
   width: 100%
+  height: 100vh
   overflow: auto
   background: $baby-gray
   .title

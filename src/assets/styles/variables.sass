@@ -4,6 +4,7 @@ $baby-blue: #d9e4e3
 $baby-pink: #f1e0d6
 $luxury-black: #2a2b2b
 $luxury-gray: #746e6e
+$luxury-gold: #d4bf95
 $coral-pink: #ecc8ac
 $tiffany-blue: #c5dfd8
 
@@ -46,3 +47,62 @@ $spacers: ( 1: ($spacer * 0.25), 2: ( $spacer * 0.5 ), 3: ( $spacer * 0.75 ), 4:
     .#{$abbrev}y-#{$key}
       #{$prop}-top: #{$value}
       #{$prop}-bottom: #{$value}
+
+/* == input styles == */   
+
+%input-style
+  margin-bottom: 2rem
+  img
+    display: inline-block
+    width: 10px
+    height: auto
+  label
+    display: block
+    margin-bottom: 1rem
+  input, textarea
+    padding: 8px
+    width: 70%
+    height: 30px
+    border: 1px solid $baby-pink
+    border-radius: 5px
+    line-height: 1.5rem
+    background: transparent
+    &:focus
+      border-color: $coral-pink
+  .es
+    margin-left: 0.5rem
+    color: $luxury-gray
+    font-size: 0.7rem
+
+%radio-style
+  @extend %input-style
+  .options
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    .option
+      display: flex
+      align-items: center
+      margin-bottom: 1rem
+      input
+        margin-right: 5px
+        appearance: none
+        padding: 0
+        width: 1rem
+        height: 1rem
+        border-radius: 50%
+        cursor: pointer
+        &:checked
+          border-color: $coral-pink
+          box-shadow: inset 0px 0px 0px 1px $baby-gray
+          background: $coral-pink
+      label
+        margin-right: 15px
+        margin-bottom: 0
+
+%textarea-style
+  @extend %input-style
+  textarea
+    width: 100%
+    height: auto
+    resize: none

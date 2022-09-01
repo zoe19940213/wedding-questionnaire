@@ -1,5 +1,5 @@
 <template>
-  <div class="information my-4">
+  <div class="information m-4 py-4">
     <img :src="casesImage" alt="" />
     <div class="description">
       <p class="mb-3">日期：{{ info.date }}</p>
@@ -33,6 +33,8 @@ export default {
   display: flex
   justify-content: space-around
   align-items: center
+  border: 1px solid $baby-blue
+  border-radius: 5px
   img
     width: 100px
   .description
