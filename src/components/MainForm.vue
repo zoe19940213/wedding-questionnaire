@@ -18,17 +18,17 @@
         </label>
         <div class="options">
           <div
-            v-for="option in questions.basic.relationship.op"
-            :key="option.v"
+            v-for="(option, index) in questions.basic.relationship.op"
+            :key="index"
             class="option"
           >
             <input
               type="radio"
               v-model="questions.basic.relationship.an"
-              :value="option.v"
+              :value="option"
               name="relationship"
             />
-            <label for="">{{ option.d }}</label>
+            <label for="">{{ option }}</label>
           </div>
         </div>
       </div>
@@ -44,17 +44,17 @@
         </label>
         <div class="options">
           <div
-            v-for="option in questions.attendance.attend.op"
-            :key="option.v"
+            v-for="(option, index) in questions.attendance.attend.op"
+            :key="index"
             class="option"
           >
             <input
               type="radio"
               v-model="questions.attendance.attend.an"
-              :value="option.v"
+              :value="option"
               name="attendance"
             />
-            <label for="">{{ option.d }}</label>
+            <label for="">{{ option }}</label>
           </div>
         </div>
       </div>
@@ -78,17 +78,17 @@
         </label>
         <div class="options">
           <div
-            v-for="option in questions.attendance.food.op"
-            :key="option.v"
+            v-for="(option, index) in questions.attendance.food.op"
+            :key="index"
             class="option"
           >
             <input
               type="radio"
               v-model="questions.attendance.food.an"
-              :value="option.v"
+              :value="option"
               name="food"
             />
-            <label for="">{{ option.d }}</label>
+            <label for="">{{ option }}</label>
           </div>
         </div>
         <p class="es">{{ questions.attendance.food.es }}</p>
@@ -109,17 +109,17 @@
         </label>
         <div class="options">
           <div
-            v-for="option in questions.invitation.card.op"
-            :key="option.v"
+            v-for="(option, index) in questions.invitation.card.op"
+            :key="index"
             class="option"
           >
             <input
               type="radio"
               v-model="questions.invitation.card.an"
-              :value="option.v"
+              :value="option"
               name="invitation"
             />
-            <label for="">{{ option.d }}</label>
+            <label for="">{{ option }}</label>
           </div>
         </div>
       </div>
@@ -177,6 +177,7 @@
 <script>
 import { getQuestions } from "../compositions/formContent";
 import { getWatchers } from "../compositions/watchers";
+import { creatAnswer, Toast } from "../utils/helpers";
 
 export default {
   name: "MainForm",
@@ -184,7 +185,7 @@ export default {
     const requiredIcon = require("../assets/images/pin.png");
     const { questions } = getQuestions();
     const { watch } = getWatchers(questions);
-    const submitForm = () => {
+    const submitForm = async () => {
       const formAnswer = {};
       let errCount = 0;
       for (let part in questions) {
@@ -195,9 +196,29 @@ export default {
           errCount = questions[part][question].er ? errCount + 1 : errCount;
         }
       }
-      console.log(errCount);
-      console.log(formAnswer);
-      //api here
+
+      if (errCount > 0) {
+        Toast.fire({
+          icon: "warning",
+          iconColor: "#e5b5b4",
+          title: "送出失敗",
+          text: "必填欄位不可空白"
+        });
+      } else {
+        try {
+          const { data } = await creatAnswer(formAnswer);
+          if (data.status === "success") {
+            Toast.fire({
+              icon: "success",
+              iconColor: "#9db3c9",
+              title: "成功送出",
+              text: "感謝你的填寫!"
+            });
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
     };
 
     return { requiredIcon, questions, submitForm, watch };
@@ -231,9 +252,11 @@ export default {
   .btn-wrapper
     text-align: end
     .submit-btn
-      border: 1px solid $coral-pink
+      color: $rose-pink
+      border: 1px solid $rose-pink
       border-radius: 5px
       transition: background .3s
       &:hover
-        background: $coral-pink
+        color: white
+        background: $rose-pink
 </style>

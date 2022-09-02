@@ -12,11 +12,7 @@ export function getQuestions() {
       },
       relationship: {
         qs: "請問你和新人的關係是?",
-        op: [
-          { d: "男方親友", v: "groom" },
-          { d: "女方親友", v: "bride" },
-          { d: "共同朋友", v: "together" }
-        ],
+        op: ["男方親友", "女方親友", "共同朋友"],
         an: "",
         rq: true,
         er: false
@@ -25,12 +21,7 @@ export function getQuestions() {
     attendance: {
       attend: {
         qs: "請問是否參與證婚/婚宴?",
-        op: [
-          { d: "全程參加", v: "both" },
-          { d: "僅參與證婚", v: "ceremony" },
-          { d: "僅參與婚宴", v: "banquet" },
-          { d: "可惜皆無法參與", v: "not" }
-        ],
+        op: ["全程參加", "僅參與證婚", "僅參與婚宴", "可惜皆無法參與"],
         an: "",
         rq: true,
         er: false
@@ -49,11 +40,7 @@ export function getQuestions() {
       },
       food: {
         qs: "飲食習慣?",
-        op: [
-          { d: "無特別", v: "none" },
-          { d: "全素", v: "vegan" },
-          { d: "蛋奶素", v: "vegetarian" }
-        ],
+        op: ["無特別", "全素", "蛋奶素"],
         es: "* 其他特殊飲食習慣因為是桌菜的關係無法滿足QQ",
         an: "",
         rq: true,
@@ -69,11 +56,7 @@ export function getQuestions() {
     invitation: {
       card: {
         qs: "是否需要喜帖?",
-        op: [
-          { d: "實體喜帖", v: "physical" },
-          { d: "電子喜帖", v: "digital" },
-          { d: "我都想要!", v: "both" }
-        ],
+        op: ["實體喜帖", "電子喜帖", "我都想要!"],
         an: "",
         rq: true,
         er: false
@@ -90,8 +73,8 @@ export function getQuestions() {
         an: "",
         rq: computed(
           () =>
-            questions.invitation.card.an === "digital" ||
-            questions.invitation.card.an === "both"
+            questions.invitation.card.an === "電子喜帖" ||
+            questions.invitation.card.an === "我都想要!"
         ),
         er: false
       },
@@ -101,8 +84,8 @@ export function getQuestions() {
         an: "",
         rq: computed(
           () =>
-            questions.invitation.card.an === "physical" ||
-            questions.invitation.card.an === "both"
+            questions.invitation.card.an === "實體喜帖" ||
+            questions.invitation.card.an === "我都想要!"
         ),
         er: false
       }
