@@ -74,14 +74,14 @@ export default {
   height: auto
 ::v-deep
   & .swiper-button-next, & .swiper-button-prev
-    color: $tiffany-blue
+    color: $baby-blue
     &::after
       font-size: 1.5rem
   & .swiper-pagination-bullet
     width: 0.5rem
     height: 0.5rem
   & .swiper-pagination-bullet-active
-    background: $tiffany-blue
+    background: $baby-blue
   & .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
     margin-right: 0.2rem
 </style>

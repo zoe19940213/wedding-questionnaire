@@ -1,12 +1,12 @@
 <template>
-  <div class="information m-4 py-4">
-    <img :src="casesImage" alt="" />
+  <div class="information m-4 p-4">
     <div class="description">
-      <p class="mb-3">日期：{{ info.date }}</p>
-      <p class="mb-3">地點：{{ info.place }}</p>
-      <p class="mb-3">證婚儀式：{{ info.ceremony }}</p>
-      <p>婚宴：17:30迎賓 | 18:30開始</p>
+      <p class="mb-4 pl-6">日期：{{ info.date }}</p>
+      <p class="mb-4 pl-6">地點：{{ info.place }}</p>
+      <p class="mb-4 pl-6">證婚儀式：{{ info.ceremony }}</p>
+      <p class="pl-6">婚宴：17:30迎賓 | 18:30開始</p>
     </div>
+    <img :src="casesImage" alt="" />
   </div>
 </template>
 
@@ -30,22 +30,30 @@ export default {
 
 <style lang="sass" scoped>
 .information
+  position: relative
   display: flex
-  justify-content: space-around
   align-items: center
   border: 1px solid $baby-blue
   border-radius: 5px
   img
-    width: 100px
+    position: absolute
+    right: 10px
+    bottom: 10px
+    width: 20%
+    max-width: 150px
   .description
     p
+      position: relative
       font-family: 'Noto Serif TC', serif
       &::before
-       content:''
-       display: inline-block
-       margin-right: 10px
-       width: 8px
-       height: 8px
-       border-radius: 50%
-       background: $coral-pink
+       content: ''
+       display: block
+       position: absolute
+       top: -4px
+       left: 0
+       width: 20px
+       height: 20px
+       background-image: url('../assets/images/hot-balloon-blue-yellow.png')
+       background-size: cover
+       transform: rotate(-20deg)
 </style>

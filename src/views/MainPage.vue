@@ -31,17 +31,17 @@ export default {
   background: $baby-gray
   .title
     text-align: center
-    border-bottom: 1px solid $baby-blue
+    border-bottom: 1.5px solid $baby-blue
 
 @media screen and (min-width: 576px)
   .container
-    margin-top: 2rem
+    margin: 2rem auto
     width: 80%
     border-radius: 5px
     box-shadow: 0px 0px 5px 3px rgba(143,141,143,1)
 
 @media screen and (min-width: 768px)
   .container
-    margin-top: 2.5rem
+    margin: 2.5rem auto
     max-width: 1000px
 </style>

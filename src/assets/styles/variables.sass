@@ -1,12 +1,12 @@
 /* == colors == */
 $baby-gray: #faf7f5
-$baby-blue: #d9e4e3
-$baby-pink: #f1e0d6
+$baby-blue: #bdcddd
 $luxury-black: #2a2b2b
 $luxury-gray: #746e6e
 $luxury-gold: #d4bf95
-$coral-pink: #ecc8ac
-$tiffany-blue: #c5dfd8
+$coral-pink: #e7c7b6
+$rose-pink: #e5b5b4
+$bride-blue: #9db3c9
 
 /* == text == */
 $desktop-font-basic: 16px
@@ -54,23 +54,35 @@ $spacers: ( 1: ($spacer * 0.25), 2: ( $spacer * 0.5 ), 3: ( $spacer * 0.75 ), 4:
   margin-bottom: 2rem
   img
     display: inline-block
-    width: 10px
+    width: 0.8rem
     height: auto
   label
     display: block
     margin-bottom: 1rem
+  &.error
+    input
+      border-color: $bride-blue
+      box-shadow: 0px 0px 0px 1px $bride-blue
+    &>label::after
+      content: '此題為必填哦!'
+      display: inline-block
+      margin-left: 8px
+      font-size: 0.8rem
+      color: $luxury-gray
   input, textarea
     padding: 8px
     width: 70%
-    height: 30px
-    border: 1px solid $baby-pink
+    height: 2.5rem
+    border: 1px solid $coral-pink
     border-radius: 5px
     line-height: 1.5rem
     background: transparent
     &:focus
-      border-color: $coral-pink
+      border-color: $rose-pink
+      box-shadow: 0px 0px 0px 1px $rose-pink
   .es
     margin-left: 0.5rem
+    line-height: 1.5rem
     color: $luxury-gray
     font-size: 0.7rem
 
