@@ -214,6 +214,7 @@ export default {
               title: "成功送出",
               text: "感謝你的填寫!"
             });
+            history.go(0);
           }
         } catch (err) {
           console.log(err);
