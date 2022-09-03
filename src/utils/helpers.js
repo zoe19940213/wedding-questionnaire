@@ -6,7 +6,7 @@ const Toast = Swal.mixin({
   confirmButtonText: "Close"
 });
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://wedding-questionnaire-zoe.herokuapp.com";
 
 function creatAnswer(answer) {
   return axios.post(`${baseURL}`, answer);
